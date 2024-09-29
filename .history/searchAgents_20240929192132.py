@@ -388,17 +388,24 @@ def cornersHeuristic(state, problem):
     corners_visited = state[1]
     corners_remaining = [corner for corner in corners if corner not in corners_visited]
 
+
+   
     estimated_cost = 0
     current_position = state[0]
 
+
+   
     while corners_remaining:
         distance, nearest_corner = min(
             (util.manhattanDistance(current_position, corner), corner)
             for corner in corners_remaining
         )
+
+
         current_position = nearest_corner
         corners_remaining.remove(nearest_corner)
         estimated_cost += distance
+
 
     return estimated_cost
 

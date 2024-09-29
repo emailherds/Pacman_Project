@@ -524,7 +524,7 @@ class ClosestDotSearchAgent(SearchAgent):
 
         "*** YOUR CODE HERE ***"
         
-        return search.breadthFirstSearch(problem)
+                
         util.raiseNotDefined()
 
 class AnyFoodSearchProblem(PositionSearchProblem):
@@ -560,8 +560,10 @@ class AnyFoodSearchProblem(PositionSearchProblem):
         """
         x,y = state
 
-        "*** YOUR CODE HERE ***"        
-        return self.food[x][y]
+        "*** YOUR CODE HERE ***"
+        print("GOAL", self.goal)
+        
+        return self.goal == state
         
         util.raiseNotDefined()
 

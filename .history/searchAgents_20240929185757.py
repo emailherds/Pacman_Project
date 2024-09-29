@@ -296,7 +296,7 @@ class CornersProblem(search.SearchProblem):
         space)
         """
         "*** YOUR CODE HERE ***"
-        return (self.startingPosition, tuple())
+        return (self.startingPosition(), tuple())
         util.raiseNotDefined()
 
     def isGoalState(self, state: Any):
@@ -339,10 +339,10 @@ class CornersProblem(search.SearchProblem):
             
             if not hitsWall:
                 newPos = (nextx, nexty)
-                newCorners_visited = list(corners_visited)
+                newCorners = corners_visited
                 if newPos not in corners_visited and newPos in self.corners:
-                    newCorners_visited.append(newPos)
-                successors.append(((newPos, tuple(newCorners_visited)), action, 1))
+                    newCorners.append(newPos)
+                successors.append(tuple(newPos, newCorners), action, 1)
             
         self._expanded += 1 # DO NOT CHANGE
         return successors
